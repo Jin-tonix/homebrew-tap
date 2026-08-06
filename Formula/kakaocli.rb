@@ -15,8 +15,8 @@ class Kakaocli < Formula
 
   bottle do
     root_url "https://github.com/Jin-tonix/homebrew-tap/releases/download/kakaocli-0.6.0"
-    rebuild 2
-    sha256 cellar: :any, sequoia: "e3b2c4f28640601e6a1819d32839fc6582972655bc461f2e0cfcd518aeccd1a8"
+    rebuild 3
+    sha256 cellar: :any, sequoia: "67ed2e3f28a881634882a26256cc3ee06caf38fa7fdc619ef1b1b49acbcf3227"
   end
 
   def install
