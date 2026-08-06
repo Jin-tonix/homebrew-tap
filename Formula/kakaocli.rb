@@ -8,7 +8,6 @@ class Kakaocli < Formula
   head "https://github.com/silver-flight-group/kakaocli.git", branch: "main"
 
   depends_on :macos
-  depends_on xcode: ["15.0", :build]
   depends_on "sqlcipher"
 
   def install
