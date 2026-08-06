@@ -13,6 +13,12 @@ class Kakaocli < Formula
   depends_on :macos
   depends_on "sqlcipher"
 
+  bottle do
+    root_url "https://github.com/Jin-tonix/homebrew-tap/releases/download/kakaocli-0.6.0"
+    rebuild 2
+    sha256 cellar: :any, sequoia: "e3b2c4f28640601e6a1819d32839fc6582972655bc461f2e0cfcd518aeccd1a8"
+  end
+
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
     bin.install ".build/release/kakaocli"
