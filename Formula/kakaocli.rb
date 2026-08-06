@@ -1,20 +1,17 @@
 class Kakaocli < Formula
   desc "CLI tool for KakaoTalk on macOS — read chats, search messages, send texts"
   homepage "https://github.com/silver-flight-group/kakaocli"
-  url "https://github.com/silver-flight-group/kakaocli.git",
-      tag: "v0.6.0",
-      revision: "8b6ffcfdaebc592a735dc1a8bd5e50037e626406"
+  # 병합대기중(silver-flight-group/kakaocli#24) — 여러 계정 흔적 있는 맥에서 잘못된 키로
+  # 조용히 확정되던 버그 수정판. 병합되면 공식 태그로 되돌린다.
+  url "https://github.com/Jin-tonix/kakaocli.git",
+      branch: "fix/verify-derived-db-key",
+      revision: "9b1c358e8dd274defa1d2aef1dafe69292074da6"
+  version "0.6.0"
   license "MIT"
   head "https://github.com/silver-flight-group/kakaocli.git", branch: "main"
 
   depends_on :macos
   depends_on "sqlcipher"
-
-  bottle do
-    root_url "https://github.com/Jin-tonix/homebrew-tap/releases/download/kakaocli-0.6.0"
-    rebuild 1
-    sha256 cellar: :any, sequoia: "0700b31220c0ba2dfff6c446f7d63b33da9b7b14db54af994bf4d03a35ab4669"
-  end
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
