@@ -1,23 +1,21 @@
 class Kakaocli < Formula
   desc "CLI tool for KakaoTalk on macOS — read chats, search messages, send texts"
-  homepage "https://github.com/silver-flight-group/kakaocli"
-  # 병합대기중(silver-flight-group/kakaocli#24) — 여러 계정 흔적 있는 맥에서 잘못된 키로
-  # 조용히 확정되던 버그 수정판. 병합되면 공식 태그로 되돌린다.
-  url "https://github.com/Jin-tonix/kakaocli.git",
-      branch: "fix/verify-derived-db-key",
-      revision: "9b1c358e8dd274defa1d2aef1dafe69292074da6"
-  version "0.6.0"
+  homepage "https://github.com/Jin-tonix/styleseller-kakaocli"
+  # silver-flight-group/kakaocli(공식) 대신 실제 개발중인 사설 리포를 직접 가리킨다 —
+  # 예전엔 여기가 아예 딴 repo(구fork, fix/verify-derived-db-key 브랜치, 9b1c358 고정)를
+  # 박아놔서 그 뒤 실제 리포에 들어간 auth fix(계정전환 재검증, 브루트포스 30분 상향,
+  # mtime tie-break 락경합 제거 등)가 하나도 안 들어왔다(2026-08-06 실측: userId
+  # 자동탐지 계속 실패 + sync --follow가 판정 오판마다 브루트포스 재실행해 CPU 500~900%
+  # 몇시간 지속). revision은 안정판 나올 때마다 최신 커밋 해시로 갱신한다.
+  url "https://github.com/Jin-tonix/styleseller-kakaocli.git",
+      branch: "main",
+      revision: "77bf0b8c8a13bb65d5389e83f00e5ddf1b0b643a"
+  version "0.7.0"
   license "MIT"
-  head "https://github.com/silver-flight-group/kakaocli.git", branch: "main"
+  head "https://github.com/Jin-tonix/styleseller-kakaocli.git", branch: "main"
 
   depends_on :macos
   depends_on "sqlcipher"
-
-  bottle do
-    root_url "https://github.com/Jin-tonix/homebrew-tap/releases/download/kakaocli-0.6.0"
-    rebuild 3
-    sha256 cellar: :any, sequoia: "67ed2e3f28a881634882a26256cc3ee06caf38fa7fdc619ef1b1b49acbcf3227"
-  end
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
