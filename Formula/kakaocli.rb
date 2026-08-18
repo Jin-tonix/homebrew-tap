@@ -9,7 +9,7 @@ class Kakaocli < Formula
   # 몇시간 지속). revision은 안정판 나올 때마다 최신 커밋 해시로 갱신한다.
   url "https://github.com/Jin-tonix/styleseller-kakaocli.git",
       branch: "main",
-      revision: "682f1f1a7545ac1c6e3214e24130e91afa397cc5"
+      revision: "29aea4331088fe7ae4f50f9fc2a22480a6878f5f"
   version "0.9.0"
   license "MIT"
   head "https://github.com/Jin-tonix/styleseller-kakaocli.git", branch: "main"
