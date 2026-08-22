@@ -9,7 +9,7 @@ class Kakaocli < Formula
   # 몇시간 지속). revision은 안정판 나올 때마다 최신 커밋 해시로 갱신한다.
   url "https://github.com/Jin-tonix/styleseller-kakaocli.git",
       branch: "main",
-      revision: "2361db472f5f09df9d3837da2ea13450aa7284ce"
+      revision: "a6cf65f675bb10e7c3a25be2ed84c79bb7530092"
   version "0.9.1"
   license "MIT"
   # 위 url의 revision(git커밋 해시)만 바꾸고 version 문자열을 그대로 두면 `brew
@@ -17,7 +17,7 @@ class Kakaocli < Formula
   # 실측: revision을 세 번 갱신했는데도 로컬 설치본이 계속 구커밋 그대로 빌드된 상태로
   # 남아있었음 — Homebrew는 version 문자열이나 이 정수 revision이 바뀌어야 재빌드를
   # 인식한다). 앞으로 url revision을 갱신할 때마다 이 정수도 반드시 +1 할 것.
-  revision 1
+  revision 2
   head "https://github.com/Jin-tonix/styleseller-kakaocli.git", branch: "main"
 
   depends_on :macos
